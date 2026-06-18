@@ -28,12 +28,16 @@ public class Generator : MonoBehaviour
 
     private void GenerateItem()
     {
-        Debug.Log("sasdas");
-        GameObject itemToSpawn = Instantiate(items[itemIndex], itemsParent);
-        Rigidbody itemBody = itemToSpawn.GetComponent<Rigidbody>();
-
-        itemToSpawn.transform.position = launchPoint.position;
-        itemBody.AddForce((transform.forward * launchVector.z + transform.up * launchVector.y) * launchForce);
+        if (itemIndex < items.Length)
+        {
+            GameObject itemToSpawn = Instantiate(items[itemIndex], itemsParent);
+            Rigidbody itemBody = itemToSpawn.GetComponent<Rigidbody>();
+            
+            itemToSpawn.transform.position = launchPoint.position;
+            itemBody.AddForce((transform.forward * launchVector.z + transform.up * launchVector.y) * launchForce);
+            
+            itemIndex++;
+        }
     }
 
     private void OnDrawGizmos()
