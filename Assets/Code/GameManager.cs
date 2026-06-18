@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     private const float RAY_MAX_LENGTH = 10000f;
 
-    private GameObject grabbedObject;
+    private Item grabbedObject;
     private Rigidbody grabbedObjectBody;
 
     void Start()
@@ -36,11 +36,17 @@ public class GameManager : MonoBehaviour
                     }
                     else
                     {
-                        grabbedObjectBody = hit.transform.GetComponent<Rigidbody>();
-                        if (grabbedObjectBody != null)
+                        grabbedObject = hit.transform.GetComponent<Item>();
+                        if (grabbedObject.hasSomethingOnTop)
+                            grabbedObject = null;
+
+                        else
                         {
-                            grabbedObject = hit.transform.gameObject;
-                            grabbedObjectBody.isKinematic = true;
+                            grabbedObjectBody = hit.transform.GetComponent<Rigidbody>();
+                            if (grabbedObjectBody != null)
+                            {
+                                grabbedObjectBody.isKinematic = true;
+                            }
                         }
                     }
                 }
