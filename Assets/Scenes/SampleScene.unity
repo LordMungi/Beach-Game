@@ -312,6 +312,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb4ef019551476429dba717f753d48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Parasol
+--- !u!136 &153475121
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153475116}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.42062807
+  m_Height: 1.1829
+  m_Direction: 1
+  m_Center: {x: -6.7702677e-10, y: -0.28305507, z: 0.025660848}
 --- !u!1 &253685496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,6 +1220,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b64b01ec03a5f4b4cad8b1c935627bd3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 153475120}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b64b01ec03a5f4b4cad8b1c935627bd3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 153475121}
   m_SourcePrefab: {fileID: 100100000, guid: b64b01ec03a5f4b4cad8b1c935627bd3, type: 3}
 --- !u!1 &1490467584
 GameObject:
