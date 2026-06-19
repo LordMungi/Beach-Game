@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_PainterlyLit
+  m_Name: Shader Graphs_PainterlyLit 2
   m_Shader: {fileID: -6465566751694194690, guid: d2f91465ec99a41cca1de94d4dce60e0, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -68,14 +68,14 @@ Material:
     - _QueueOffset: 4
     - _Smoothness: 0
     - _StrokeBlendingNoiseScale: 500
-    - _StrokeBlendingNoiseStrength: 0.406
-    - _StrokeRandomness: 0.643
-    - _StrokeScale: 3
-    - _UseBlendingNoise: 1
-    - _Variation: 0.375
+    - _StrokeBlendingNoiseStrength: 0
+    - _StrokeRandomness: 1
+    - _StrokeScale: 2.41
+    - _UseBlendingNoise: 0
+    - _Variation: 0.321
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 0}
     - _VariationColorA: {r: 0.7264151, g: 0.3461279, b: 0.14048593, a: 0}
-    - _VariationColorB: {r: 0.91429436, g: 1, b: 0.9103774, a: 0}
+    - _VariationColorB: {r: 0.7122642, g: 0.9350623, b: 1, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
