@@ -157,6 +157,8 @@ MonoBehaviour:
   interactionLayer:
     serializedVersion: 2
     m_Bits: 128
+  parasol: {fileID: 153475120}
+  level: {fileID: 11400000, guid: 6401b406253ea4b40bc9b7ebb30ebf57, type: 2}
   grabbedObjectHeight: 1
   GeneratorClickedEvent: {fileID: 11400000, guid: b51a2463d6146cb4d88993af7de83385, type: 2}
 --- !u!4 &70677802
@@ -256,7 +258,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 72397513}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 70677801}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: CheckVictory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &72397513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb4ef019551476429dba717f753d48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Parasol
+  itemsOnShade: []
 --- !u!136 &153475121
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -369,16 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   itemsParent: {fileID: 2060550775}
   launchPoint: {fileID: 1989017864}
-  items:
-  - {fileID: 9048580821406843393, guid: a38db1362b96073448e572594705efde, type: 3}
-  - {fileID: 9048580821406843393, guid: ac9f3a7270b33eb40bb18864376b0527, type: 3}
-  - {fileID: 9048580821406843393, guid: 77a3539eb5461654b93bc05134816069, type: 3}
-  - {fileID: 9048580821406843393, guid: 5a2228da872bbfa48b1076e7137e9009, type: 3}
-  - {fileID: 9048580821406843393, guid: ed9407ab3d6e70f4a859c71d5aa41c93, type: 3}
-  - {fileID: 9048580821406843393, guid: 4944765a9f2d13749963050aae2bc98f, type: 3}
-  - {fileID: 9048580821406843393, guid: 0355d84d3ce514e41909ed02a6439046, type: 3}
-  - {fileID: 9048580821406843393, guid: 6f2f186be2b3e994187fa1bc1e35f27b, type: 3}
-  - {fileID: 9048580821406843393, guid: 4b2bd4d6ba98fc24884ec2fbc000a441, type: 3}
+  level: {fileID: 11400000, guid: 6401b406253ea4b40bc9b7ebb30ebf57, type: 2}
   launchVector: {x: 0, y: 1, z: 0.5}
   launchForce: 250
   GeneratorClickedEvent: {fileID: 11400000, guid: b51a2463d6146cb4d88993af7de83385, type: 2}

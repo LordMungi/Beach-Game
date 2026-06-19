@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   hasSomethingOnTop: 0
+  config: {fileID: 11400000, guid: e88fee37e09f7cd4ba32dee7cc7f56ac, type: 2}
   topThreshold: 0.1
 --- !u!54 &7529302658602601248
 Rigidbody:

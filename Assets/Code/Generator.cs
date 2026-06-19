@@ -4,7 +4,7 @@ public class Generator : MonoBehaviour
 {
     [SerializeField] Transform itemsParent;
     [SerializeField] Transform launchPoint;
-    [SerializeField] GameObject[] items;
+    [SerializeField] LevelConfig level;
 
     [SerializeField] Vector3 launchVector;
     [SerializeField] float launchForce;
@@ -28,9 +28,9 @@ public class Generator : MonoBehaviour
 
     private void GenerateItem()
     {
-        if (itemIndex < items.Length)
+        if (itemIndex < level.items.Length)
         {
-            GameObject itemToSpawn = Instantiate(items[itemIndex], itemsParent);
+            Item itemToSpawn = Instantiate(level.items[itemIndex], itemsParent);
             Rigidbody itemBody = itemToSpawn.GetComponent<Rigidbody>();
             
             itemToSpawn.transform.position = launchPoint.position;

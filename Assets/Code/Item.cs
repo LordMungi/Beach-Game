@@ -4,6 +4,8 @@ public class Item : MonoBehaviour
 {
     public bool hasSomethingOnTop = false;
 
+    public ItemConfig config;
+
     [SerializeField] private float topThreshold = 0.1f;
 
     private void Start()

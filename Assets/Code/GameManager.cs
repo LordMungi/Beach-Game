@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LayerMask grabbableLayer;
     [SerializeField] private LayerMask interactionLayer;
 
+    [SerializeField] private Parasol parasol;
+    [SerializeField] private LevelConfig level;
+
     [SerializeField] private float grabbedObjectHeight = 1f;
 
     [Header("Broadcast Events")]
@@ -16,9 +19,22 @@ public class GameManager : MonoBehaviour
     private Item grabbedObject;
     private Rigidbody grabbedObjectBody;
 
+    private int correctItems;
+
     void Start()
     {
-        
+        foreach (Item i in level.items)
+        {
+            foreach (Tag t in i.config.Tags)
+            {
+                if (t == level.correctTag)
+                {
+                    correctItems++;
+                    break;
+                }
+            }
+        }
+        Debug.Log("Correct items: " + correctItems);
     }
 
     void Update()
@@ -31,7 +47,6 @@ public class GameManager : MonoBehaviour
                 {
                     if (hit.collider.gameObject.CompareTag("Generator"))
                     {
-                        Debug.Log("as");
                         GeneratorClickedEvent.RaiseEvent();
                     }
                     else
@@ -94,5 +109,29 @@ public class GameManager : MonoBehaviour
         {
             Gizmos.DrawRay(Camera.main.ScreenPointToRay(Input.mousePosition));
         }
+    }
+
+    public void CheckVictory()
+    {
+        int checkedCorrect = 0;
+        int itemsChecked = 0;
+
+        foreach (Item i in parasol.itemsOnShade)
+        {
+            foreach (Tag t in i.config.Tags)
+            {
+                if (t == level.correctTag)
+                {
+                    checkedCorrect++;
+                    break;
+                }
+            }
+            itemsChecked++;
+        }
+
+        if (checkedCorrect >= correctItems && itemsChecked <= checkedCorrect)
+            Debug.Log("Win");
+        else
+            Debug.Log("Missing");
     }
 }

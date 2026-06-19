@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Parasol : MonoBehaviour
 {
-    private List<Item> itemsOnShade;
+    public List<Item> itemsOnShade;
 
     void Start()
     {
@@ -13,12 +13,12 @@ public class Parasol : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         itemsOnShade.Add(other.GetComponent<Item>());
-        Debug.Log("Add " + other.name);
+        //Debug.Log("Add " + other.name);
     }
 
     private void OnTriggerExit(Collider other)
     {
         itemsOnShade.Remove(other.GetComponent<Item>());
-        Debug.Log("Remove " + other.name);
+        //Debug.Log("Remove " + other.name);
     }
 }
