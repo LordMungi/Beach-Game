@@ -57,9 +57,10 @@ public class GameManager : MonoBehaviour
                     else
                     {
                         grabbedObject = hit.transform.GetComponent<Item>();
+                        grabbedObject.PlaySound();
+
                         if (grabbedObject.hasSomethingOnTop)
                             grabbedObject = null;
-
                         else
                         {
                             grabbedObjectBody = hit.transform.GetComponent<Rigidbody>();

@@ -7,13 +7,17 @@ public class Item : MonoBehaviour
     public ItemConfig config;
 
     [SerializeField] private float topThreshold = 0.1f;
+    [SerializeField] private AudioSource sfx;
 
     private void Start()
     {
         gameObject.layer = LayerMask.NameToLayer("Grabbable");
     }
 
-
+    public void PlaySound()
+    {
+        sfx.Play();
+    }
     private void OnCollisionStay(Collision collision)
     {
         hasSomethingOnTop = false;
