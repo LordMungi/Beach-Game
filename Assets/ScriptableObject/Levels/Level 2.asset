@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0790a2e5ce8eb64dba3c957fa78d330, type: 3}
   m_Name: Level 2
   m_EditorClassIdentifier: Assembly-CSharp::LevelConfig
+  <conditionText>k__BackingField: useful stuff
   <items>k__BackingField:
   - {fileID: 5811862626113347078, guid: ed9407ab3d6e70f4a859c71d5aa41c93, type: 3}
   - {fileID: 5811862626113347078, guid: 5a2228da872bbfa48b1076e7137e9009, type: 3}
@@ -29,4 +30,4 @@ MonoBehaviour:
   - {fileID: 5811862626113347078, guid: a7585c928970ea440879f499dc6f8bc5, type: 3}
   - {fileID: 5811862626113347078, guid: a12bd70f6e02c884fb216fc588bf7158, type: 3}
   - {fileID: 5811862626113347078, guid: 4b2bd4d6ba98fc24884ec2fbc000a441, type: 3}
-  correctTag: {fileID: 11400000, guid: d6d409ecca50ec749b38e5bd7ca79e4d, type: 2}
+  <correctTag>k__BackingField: {fileID: 11400000, guid: d6d409ecca50ec749b38e5bd7ca79e4d, type: 2}

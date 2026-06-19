@@ -11,10 +11,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float grabbedObjectHeight = 1f;
     [SerializeField] private float rotationSpeed = 100f;
 
+    [SerializeField] private AudioSource correctSFX;
+    [SerializeField] private AudioSource incorrectSFX;
+
     [Header("Broadcast Events")]
     [SerializeField] EventChannel GeneratorClickedEvent;
     [SerializeField] private EventChannel PauseGameEvent;
     [SerializeField] private EventChannel UnpauseGameEvent;
+    [SerializeField] private EventChannel WinLevelEvent;
+    [SerializeField] private EventChannel WinGameEvent;
 
     private const float RAY_MAX_LENGTH = 10000f;
 
@@ -22,6 +27,7 @@ public class GameManager : MonoBehaviour
     private Rigidbody grabbedObjectBody;
 
     private bool isPaused;
+    private bool isWin;
     private int correctItems;
 
     private LevelConfig level;
@@ -29,6 +35,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
+        isWin = false;
         level = LevelManager.instance.currentLevel;
 
         foreach (Item i in level.items)
@@ -47,7 +54,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!isWin)
+        {
+            if (Input.GetMouseButtonDown(0))
         {
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, RAY_MAX_LENGTH, grabbableLayer | interactionLayer))
             {
@@ -76,14 +85,11 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0))
         {
             ReleaseGrabbedObject();
         }
-
-
-
-        if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!isPaused)
             {
@@ -93,6 +99,7 @@ public class GameManager : MonoBehaviour
             {
                 UnpauseGame();               
             }
+        }
         }
     }
 
@@ -164,12 +171,16 @@ public class GameManager : MonoBehaviour
 
         if (checkedCorrect >= correctItems && itemsChecked <= checkedCorrect)
         {
-            LevelManager.instance.nextLevel();
-            ResetGame();
+            correctSFX.Play();
+            isWin = true;
+            if (LevelManager.instance.nextLevel())
+                WinLevelEvent.RaiseEvent();
+            else
+                WinGameEvent.RaiseEvent();
         }
         else
         {
-
+            incorrectSFX.Play();
         }
     }
 
@@ -195,5 +206,10 @@ public class GameManager : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void NextLevel()
+    {
+        ResetGame();
     }
 }

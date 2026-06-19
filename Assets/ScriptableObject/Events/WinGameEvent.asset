@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a1da97ecc387a428e26e844e2a119d, type: 3}
-  m_Name: Shovel
-  m_EditorClassIdentifier: Assembly-CSharp::ItemConfig
-  <Tags>k__BackingField:
-  - {fileID: 11400000, guid: 61587ed3b4568b2418f2b4d25113c90e, type: 2}
+  m_Script: {fileID: 11500000, guid: ef38d0afa77c4ba44a449022442f54c9, type: 3}
+  m_Name: WinGameEvent
+  m_EditorClassIdentifier: Assembly-CSharp::EventChannel
