@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LevelConfig level;
 
     [SerializeField] private float grabbedObjectHeight = 1f;
+    [SerializeField] private float rotationSpeed = 100f;
 
     [Header("Broadcast Events")]
     [SerializeField] EventChannel GeneratorClickedEvent;
@@ -77,6 +78,9 @@ public class GameManager : MonoBehaviour
         {
             ReleaseGrabbedObject();
         }
+
+
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!isPaused)
@@ -94,6 +98,16 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
             MoveGrabbedObject();
+
+        if (grabbedObject != null)
+        {
+            float scrollDelta = Input.GetAxis("Mouse ScrollWheel");
+
+            if (Mathf.Abs(scrollDelta) > 0.01f)
+            {
+                grabbedObjectBody.MoveRotation(Quaternion.Euler(0f, scrollDelta * rotationSpeed * Time.fixedDeltaTime, 0f) * grabbedObjectBody.rotation);
+            }
+        }
     }
 
     private void MoveGrabbedObject()

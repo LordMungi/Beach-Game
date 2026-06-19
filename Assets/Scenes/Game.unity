@@ -297,6 +297,7 @@ MonoBehaviour:
   parasol: {fileID: 153475120}
   level: {fileID: 11400000, guid: 6401b406253ea4b40bc9b7ebb30ebf57, type: 2}
   grabbedObjectHeight: 1
+  rotationSpeed: 10000
   GeneratorClickedEvent: {fileID: 11400000, guid: b51a2463d6146cb4d88993af7de83385, type: 2}
   PauseGameEvent: {fileID: 11400000, guid: 0a634bb4d48e4c545be4323fe142db93, type: 2}
   UnpauseGameEvent: {fileID: 11400000, guid: 588c3a79766af654f96d5c0857a8a8f5, type: 2}
@@ -3037,7 +3038,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
